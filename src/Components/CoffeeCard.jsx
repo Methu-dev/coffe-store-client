@@ -5,6 +5,8 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   const { _id, name, chef, supplier, test, category, details, photo } = coffee;
 
   const handleDelete = (_id) => {
+    console.log("hello", _id);
+    
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -27,8 +29,11 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
-              const remaining = coffees.filter(cof => cof._id !== _id);
+              const remaining = coffees.filter(
+                (cof) => cof._id.toString() !== _id
+              );
               setCoffees(remaining);
+
             }
           });
       }

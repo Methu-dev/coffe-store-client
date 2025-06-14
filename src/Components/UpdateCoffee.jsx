@@ -2,8 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const UpdateCoffee = ({ coffee }) => {
-  const {_id} = useLoaderData();
+const UpdateCoffee = () => {
+  const { _id } = useLoaderData();
   const handleUpdateCoffee = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -38,7 +38,7 @@ const UpdateCoffee = ({ coffee }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifiedCount>0) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success",
             text: "Coffee Update Successfully",
